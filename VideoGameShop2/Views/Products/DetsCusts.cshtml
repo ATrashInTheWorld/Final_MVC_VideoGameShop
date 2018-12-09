@@ -1,0 +1,87 @@
+﻿@model VideoGameShop2.Models.Products
+@using VideoGameShop2.Models
+@using System.Data.Entity
+
+@{
+    ViewBag.Title = "Details";
+    string imgPath = Model.imagePath;
+    string trailerURL = Model.preview;
+}
+
+
+<div style="text-align:left; border:5px dashed green; margin:35px;  padding-left: 25px; font-size:18px;">
+    <span style="text-decoration:underline; font-size:50px;">@Html.DisplayFor(model => model.productTitle)</span>
+    <br />
+
+
+    <img src="@Url.Content(imgPath)" alt="@Model.productTitle" style="max-width:300px;max-height:475px;" />
+    <br />
+    <br />
+
+    <p> @Html.DisplayFor(model => model.productDescription)</p>
+
+
+    <p>
+        Available console(s)
+        <ul>
+            <li>@Html.DisplayFor(model => model.availableConsole1)</li>
+            <li>@Html.DisplayFor(model => model.availableConsole2)</li>
+            <li>@Html.DisplayFor(model => model.availableConsole3)</li>
+        </ul>
+    </p>
+
+    <p>
+        Game types:
+        <ul>
+            <li> @Html.DisplayFor(model => model.gametype1)</li>
+            <li> @Html.DisplayFor(model => model.gametype2)</li>
+            <li> @Html.DisplayFor(model => model.gametype3)</li>
+        </ul>
+    </p>
+
+
+    <p>
+        ESRB Rating:
+        @Html.DisplayFor(model => model.esrbRating)
+    </p>
+
+    <p>
+        Released Date:
+        @Html.DisplayFor(model => model.releasedDate)
+    </p>
+
+</div>
+
+
+<div style="border:5px dotted red; margin:35px;">
+    <h3 style="text-decoration:underline;color:red;">Trailer</h3>
+   
+    <iframe width="700" height="400" title="@Model.productTitle"
+            src="@Url.Content(trailerURL)"
+        frameborder="0" allowfullscreen>
+    </iframe>
+    <br />
+</div>
+
+
+<div style="border:5px double blue; margin:35px; font-size:larger;">
+    <h3 style="text-decoration:underline;color:darkblue;">Sellers</h3>
+    <br />
+    @if (ViewData["sellers"] != null)
+    {
+        List<Seller> sellers = ViewData["sellers"] as List<Seller>;
+
+        foreach (Seller x in sellers)
+        {
+            <a href="@Url.Content(x.sellerHomePage)">@x.sellerName</a>
+            @Html.Raw("&nbsp;")@Html.Raw("&nbsp;")@Html.Raw("&nbsp;")@Html.Raw("&nbsp;")@Html.Raw("&nbsp;")
+            <a href="@Url.Content(x.sellerSearchURL+Model.productTitle)">See their deals</a>
+            <br />
+        }
+    }
+</div>
+
+
+<p>
+    @Html.ActionLink("Back to the Products List", "ProdsCusts")
+</p>

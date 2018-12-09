@@ -1,0 +1,27 @@
+﻿@using VideoGameShop2.Models;
+@model VideoGameShop2.Models.User
+@{
+    ViewBag.Title = "_Register";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("_Register", "Home", FormMethod.Post))
+{
+    @Html.Label("First Name") @Html.TextBoxFor(model => model.userFirstName)
+    <br />
+    @Html.Label("Last Name") @Html.TextBoxFor(model => model.userLastName)
+    <br />
+    @Html.Label("Date of Birth") @Html.TextBoxFor(model => model.dateOfBirth, new { type="date"})
+    <br />
+    @Html.Label("Email Address") @Html.TextBoxFor(model => model.email)
+    <br />
+    @Html.Label("Username") @Html.TextBoxFor(model => model.username)
+    <br />
+    @Html.Label("Password") @Html.TextBoxFor(model=>model.password, new { type = "password" })
+    <br />
+    @Html.Label("Retype Password") @Html.TextBoxFor(model => model.rePassword, new { type="password"})
+
+    <br /><br />
+    <input type="submit" value="Register" />
+}

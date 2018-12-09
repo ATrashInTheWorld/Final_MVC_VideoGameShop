@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "_VGSLayout";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/VGS.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <div class="row">
+        <div id="dyna" style="color: white;">
+            @if (Session["user"] != null)
+            {
+                string usern = (string)Session["user"];
+                <p>Welcome  @usern</p><br />
+                <p>@Html.ActionLink("Manage Account","Index", "Manage")</p>
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken();
+                <input type="submit" value="Log Out" style="background-color:blue;"/>
+                }
+            }
+            else
+            {
+
+                @Html.ActionLink("Login", "Login", "Account")   <span> | </span>
+                @Html.ActionLink("Register", "Register", "Account")
+            }
+        </div>
+        <img src="~/Images/LogoMakr_8MWYqj.png" alt="Logo" id="logo" />
+        <h1 id="title">Video Games Shop</h1>
+
+
+    </div>
+    <br /><br /><br /><br /><br />
+    <nav class="row">
+        <div id="navbar">
+            @Html.ActionLink("Home", "Index", "Home")
+            &nbsp; &nbsp; &nbsp; 
+            @Html.ActionLink("About Us and Contact Us", "AboutContactUS", "Home")
+            &nbsp; &nbsp; &nbsp; 
+            @Html.ActionLink("Products", "ProdsCusts", "Products")
+            &nbsp; &nbsp; &nbsp;
+            @Html.ActionLink("Manage Sellers", "Index", "Sellers")
+            &nbsp; &nbsp; &nbsp; 
+            @Html.ActionLink("Manage Product", "Index", "Products")
+            &nbsp; &nbsp; &nbsp;
+            @Html.ActionLink("Manage Users", "Index", "Users")
+        </div>
+    </nav>
+
+
+    <form action="" id="search">
+        <input type="text" placeholder="Search a game" id="searchb" />
+        <button type="submit">
+            Search
+        </button>
+    </form>
+
+
+    <div id="social">
+
+        <img src="~/Images/social.jpg" alt="Don't click it won't work" style="height:200px; width:85px;"/>
+    </div>
+
+
+    <div id="ad">
+        <img src="~/Images/add1.gif"  alt="Publicity" style="height:200px; width:100px;"/>
+    </div>
+
+    <div id="boddy" class="row">
+        @RenderBody()
+    </div>
+
+    <br />
+    <footer>
+        <hr />
+        This web project is for learning and marks purpose. Feel free to ask for the selling price.
+        I will be really glad to sell you this project &nbsp;&nbsp;&nbsp;
+        <img src="~/Images/LogoMakr_8MWYqj.png" alt="Logo" style="height:50px; width:50px;" />
+
+    </footer>
+</body>
+
+</html>

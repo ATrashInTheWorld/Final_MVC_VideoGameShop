@@ -1,0 +1,45 @@
+﻿@model IEnumerable<VideoGameShop2.Models.Seller>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sellerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sellerHomePage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sellerSearchURL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sellerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sellerHomePage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sellerSearchURL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.sellerID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.sellerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.sellerID })
+        </td>
+    </tr>
+}
+
+</table>

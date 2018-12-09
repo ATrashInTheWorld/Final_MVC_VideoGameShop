@@ -1,0 +1,40 @@
+﻿@model IEnumerable<VideoGameShop2.Models.Products>
+
+@{
+    ViewBag.Title = "Index";
+    int count = 0;
+}
+
+<h2>Index</h2>
+
+<table class="table">
+ 
+        @foreach (var item in Model)
+        {
+
+            if (count==0)
+            {
+                @Html.Raw("<tr>")
+            }
+
+
+        
+            <td>
+                <img src='@Url.Content(item.imagePath)' alt="@item.productTitle" style="width:150px;height:200px;">
+                <br />
+                @Html.ActionLink(item.productTitle, "DetsCusts", new { id = item.productISBN })
+            </td>
+
+
+            count++;
+
+            if (count % 3 == 0)
+            {
+                count = 0;
+                @Html.Raw("</tr>")
+            }
+
+        }
+
+
+    </table>

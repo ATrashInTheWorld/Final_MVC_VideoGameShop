@@ -1,0 +1,42 @@
+﻿@model VideoGameShop2.Models.Seller
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Seller</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sellerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sellerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sellerHomePage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sellerHomePage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sellerSearchURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sellerSearchURL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.sellerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

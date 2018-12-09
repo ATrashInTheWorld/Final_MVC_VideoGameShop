@@ -1,0 +1,105 @@
+﻿@model IEnumerable<VideoGameShop2.Models.Products>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availableConsole1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availableConsole2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availableConsole3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gametype1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gametype2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gametype3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.esrbRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.preview)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.releasedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.enteredDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.productTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.availableConsole1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.availableConsole2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.availableConsole3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gametype1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gametype2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gametype3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.esrbRating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preview)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.releasedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.imagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.enteredDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.productISBN }) |
+            @Html.ActionLink("Details", "Details", new { id=item.productISBN }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.productISBN })
+        </td>
+    </tr>
+}
+
+</table>

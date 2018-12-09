@@ -1,0 +1,63 @@
+﻿@model IEnumerable<VideoGameShop2.Models.Products>
+@using VideoGameShop2.Models
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_VGSLayout.cshtml";
+    // Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+
+    //Before correcting, please note that
+    //everting from this page works on the fact
+    //That I know there are 11 records in the PRODUCTS table
+
+
+    int counter = 0;
+    List<Products> prods = Model as List<Products>;
+    string[] imgPaths = new string[8];
+
+    for (int c = 0; c < imgPaths.Length; c++)
+    {
+        imgPaths[c] = prods.ElementAt(c).imagePath;
+    }
+}
+
+<!--BLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLABLA-->
+<h1>Welcome To the Video Game Shop</h1>
+<!----p>
+    We hope you will enjoy your experience of searching for the game you would like to have.<br />
+    Yes, here you can dream as much you want without worrying how it will cost, since we dont<br />
+    sell anything. We just seem like it.
+    <br /><br />
+    Have a nice search.<br />
+    PS: The website in under construction, please be patient for the final product<br />
+</p-->
+
+<br /><br /><br />
+
+<!--Tried to do a slideshow but it did not have enough time to figure it out-->
+<!--If it does not display the image in lines, it is because the screen is not large enough
+        else, the image and the title should be all inline one under each other-->
+<div id="news">
+    <p style="font-size:55px; color:orangered;">Our Top 3 newest products entered</p>
+    <br />
+    @while (counter != 3)
+    {
+        <img src="@Url.Content(String.Format("{0}", imgPaths[counter]))" id="newsImg" />
+        counter++;
+    }
+</div>
+
+<br /><br /><br /><br />
+
+<!--Tried to do a manula sidescroll slideshow with more than 3 products
+    and arrows to see one further, but again, not enough time-->
+<div id="semiRecent">
+    <p style="font-size:35px; color:darkgreen;">Latest products</p>
+    @for (int c = 0; c < ((imgPaths.Length / 2) + 2); c++)
+    {
+        <img src="@Url.Content(String.Format("{0}", imgPaths[c]))" style="width:115px; height:115px; border:2px dashed yellow; margin-right:25px;" />
+    }
+</div>
+<br />

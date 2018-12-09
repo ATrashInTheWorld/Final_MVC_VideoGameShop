@@ -1,0 +1,122 @@
+﻿@model VideoGameShop2.Models.Products
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Products</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.productTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.availableConsole1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.availableConsole1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.availableConsole2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.availableConsole2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.availableConsole3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.availableConsole3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gametype1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gametype1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gametype2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gametype2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gametype3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gametype3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.esrbRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.esrbRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.preview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.preview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.releasedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.releasedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.enteredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.enteredDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.productISBN }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
